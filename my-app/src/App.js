@@ -1,5 +1,8 @@
-import ExpenseItem from './components/ExpenseItem'
+import Expenses from './components/Expenses'
 import './App.css';
+import './components/Expenses.css'
+import Card from './components/Card';
+
 
 function App() {
 
@@ -9,12 +12,10 @@ function App() {
     {id:'3', title: 'Room', date: new Date(2022,9,15), amount: 780}
   ]
   return (
-    <div className="App">
+    <Card className="expenses">
       Intro to react
-      <ExpenseItem title={expenses[0].title} date={expenses[0].date} amount={expenses[0].amount}></ExpenseItem>
-      <ExpenseItem title={expenses[1].title} date={expenses[1].date} amount={expenses[1].amount}></ExpenseItem>
-      <ExpenseItem title={expenses[2].title} date={expenses[2].date} amount={expenses[2].amount}></ExpenseItem>
-    </div>
+      <Expenses data = {expenses}/>
+    </Card>
   );
 }
 
