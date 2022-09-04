@@ -1,14 +1,17 @@
 import './ExpenseItem.css'
 import ExpenseDate from './ExpenseDate';
 import Card from './Card';
+import { useState } from 'react';
 function ExpenseItem(props) {
 
-    let title  = props.title;
+    let [title,changeValue]  = useState(props.title);
 
     function change() {
-        title = "changee"
+        changeValue("changee");
         console.log(title);
     }
+
+    
     return (
         <Card className='expense-item'>
             <ExpenseDate date = {props.date}/>
