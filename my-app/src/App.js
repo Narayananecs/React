@@ -2,6 +2,7 @@ import Expenses from './components/Expenses'
 import './App.css';
 import './components/Expenses.css'
 import Card from './components/Card';
+import NewExpense from './components/NewExpense';
 
 
 function App() {
@@ -12,10 +13,12 @@ function App() {
     {id:'3', title: 'Room', date: new Date(2022,9,15), amount: 780}
   ]
   return (
+    <div>
+    <NewExpense/>
     <Card className="expenses">
-      Intro to react
       <Expenses data = {expenses}/>
     </Card>
+    </div>
   );
 }
 
