@@ -12,9 +12,12 @@ function App() {
     {id:'2', title: 'Petrol', date: new Date(2022,9,15), amount: 700},
     {id:'3', title: 'Room', date: new Date(2022,9,15), amount: 780}
   ]
+  const saveExpense = (data) =>{
+    console.log(data);
+  }
   return (
     <div>
-    <NewExpense/>
+    <NewExpense onSaveExpense={saveExpense}/>
     <Card className="expenses">
       <Expenses data = {expenses}/>
     </Card>
