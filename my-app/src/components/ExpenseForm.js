@@ -25,23 +25,25 @@ function ExpenseForm() {
             amount: enteredAmount,
             date: enteredDate
         }
-
         console.log(data);
+        setTile('');
+        setAmount('');
+        setDate('');
     }
     return (
         <form onSubmit={submitHandler}>
             <div className="new-expense__controls">
                 <div className="new-expense__control">
                     <label>Title</label>
-                    <input type="text" onChange={titleHandler}/>
+                    <input type="text" value={enteredTitle} onChange={titleHandler}/>
                 </div>
                 <div className="new-expense__control">
                 <label>Amount</label>
-                    <input type="number" onChange={amountHandler}/>
+                    <input type="number" value={enteredAmount} onChange={amountHandler}/>
                 </div>
                 <div className="new-expense__control">
                 <label>Date</label>
-                    <input type="date" onChange={dateHandler}/>
+                    <input type="date" value={enteredDate} onChange={dateHandler}/>
                 </div>
             </div>
             <div className="new-expense__actions">
