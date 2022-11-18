@@ -2,6 +2,7 @@ import { useState } from 'react'
 import './ExpenseForm.css'
 function ExpenseForm(props) {
 
+    let [showForm, setFormVisibility] = useState(false);
     const [enteredTitle, setTile] = useState('');
     const [enteredAmount, setAmount] = useState('');
     const [enteredDate, setDate] = useState('');
@@ -30,6 +31,20 @@ function ExpenseForm(props) {
         setTile('');
         setAmount('');
         setDate('');
+        setFormVisibility(false);
+    }
+
+    const formVisibiityHandler = () => {
+        showForm = !showForm;
+        setFormVisibility(showForm)
+    }
+
+    if(showForm === false) {
+        return (
+            <div >
+                    <button type='submit' onClick={formVisibiityHandler}>Add Expenses</button>
+            </div>
+        )
     }
     return (
         <form onSubmit={submitHandler}>
@@ -47,9 +62,14 @@ function ExpenseForm(props) {
                     <input type="date" value={enteredDate} onChange={dateHandler}/>
                 </div>
             </div>
-            <div className="new-expense__actions">
-                    <button type='submit'>Submit</button>
-                </div>
+            <div>
+            <span >
+                    <button type='submit' onClick={formVisibiityHandler}>Cancel</button>
+            </span>
+            <span>
+                    <button type='submit'>Add Expenses</button>
+            </span>
+            </div>
         </form>
     )
 }
